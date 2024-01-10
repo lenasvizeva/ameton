@@ -1,6 +1,6 @@
 const gulp = require("gulp");
 const { parallel, series } = require("gulp");
-
+const deploy = require('gulp-gh-pages');
 const imagemin = require("gulp-imagemin");
 const htmlmin = require("gulp-htmlmin");
 const uglify = require("gulp-uglify");
@@ -21,9 +21,9 @@ const babel = require('gulp-babel');
 
 // Optimise Images
 function imageMin(cb) {
-    gulp.src("src/assets/images/*")
+    gulp.src("src/assets/img/**/*")
         .pipe(imagemin())
-        .pipe(gulp.dest("dist/images"));
+        .pipe(gulp.dest("dist/img"));
     cb();
 }
 
@@ -43,6 +43,12 @@ function minifyHTML(cb) {
             })
         )
         .pipe(gulp.dest("dist"));
+    cb();
+}
+
+function copyFonts(cb) {
+    gulp.src("src/assets/fonts/*")
+        .pipe(gulp.dest("dist/fonts"));
     cb();
 }
 
@@ -116,8 +122,13 @@ function watch_files() {
     );
 }
 
+gulp.task('deploy', function () {
+    return gulp.src("./dist/**/*")
+      .pipe(deploy())
+});
+
 // Default 'gulp' command with start local server and watch files for changes.
 exports.default = series(nunjucks, css, js, imageMin, watch_files);
 
 // 'gulp build' will build all assets but not run on a local server.
-exports.build = parallel(nunjucksMinify, css, js, imageMin);
+exports.build = parallel(nunjucksMinify, css, js, imageMin, copyHTML, copyFonts);
