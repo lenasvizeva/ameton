@@ -1,3 +1,7 @@
+/*------------------*
+# Slider
+*------------------*/
+
 .slider {
     margin-top: 3.2rem;
     height: 18rem;
@@ -13,6 +17,7 @@
         justify-content: center;
         align-items: center;
         z-index: 1;
+        transition: all .5s ease-in-out;
     }
 
     .slick-next {
@@ -35,12 +40,17 @@
     .slick-next.slick-disabled, .slick-prev.slick-disabled {
         display: none;
         opacity: 0;
+        transition: all .3s ease-in-out;
     }
 
     .slick-prev::before {
         transform: rotate(180deg);
-        // margin-left: 1.6rem;
     }   
+
+    .slick-next:hover, .slick-prev:hover {
+        background-color: #e7e6e6;
+        transition: all .5s ease-in-out;
+    }
 }
 
 .slick-slide {

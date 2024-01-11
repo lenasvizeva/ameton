@@ -1,6 +1,10 @@
+/*------------------*
+# Social Media 
+*------------------*/
+
 .media {
     border-radius: 4rem;
-    box-shadow: 0px 15px 60px #1a1a1a0d;
+    box-shadow: 0px 15px 30px #1a1a1a0d;
     display: flex;
     margin-top: .2rem;
     padding: 4.2rem 4rem;
@@ -51,6 +55,12 @@
     justify-content: center;
     align-items: center;
     margin-right: 1.4rem;
+    transition: all .5s ease-in-out;
+
+    &:hover {
+        background-color: #e7e6e6;
+        transition: all .5s ease-in-out;
+    }
 
     &:last-child {
         margin-right: 0;
