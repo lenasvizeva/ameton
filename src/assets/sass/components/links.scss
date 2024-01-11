@@ -35,6 +35,12 @@
             color: $color-grey;
             max-width: 42rem;
             margin-top: .4rem;
+
+            @include mobile {
+                font-size: 1.6rem;
+                margin-top: .6rem;
+                padding-right: 3rem;
+            }
         }
     }
 }

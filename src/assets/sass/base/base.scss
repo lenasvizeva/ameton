@@ -7,9 +7,13 @@ html {
     font-family: $base-font-family;
     font-size: 62.5%;                   // Такое значение font-size используется для удобства конвертации px в rem (62.5% от размера шрифта браузера 16px = 10px),
                                         // подробнее об этом методе можно узнать из статьи https://www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/
-    // @include tablet {
-    //     font-size: 58.5%;
-    // } 
+    @include tablet {
+        font-size: 58.5%;
+    }
+
+    @include mobile {
+        font-size: 54.5%;
+    } 
 }
 
 * {
@@ -34,23 +38,47 @@ body {
 .page-width {
     margin-left: auto;
     margin-right: auto;
-    max-width: 128rem;
+    width: 128rem;
+    max-width: 100%;
     padding-left: 4rem;
     padding-right: 4rem;
 
     &--start {
        margin: 0;
        padding-top: 2.2rem; 
-    }   
+    }
+
+    @include tablet {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    @include mobile {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 .section, .article {
     margin-bottom: 8rem;
 
+    @include tablet {
+        margin-bottom: 6rem;
+    }
+    @include mobile {
+        margin-bottom: 6rem;
+    }
+
     &--narrow {
         max-width: 99.6rem;
         margin-left: auto;
         margin-right: auto;
+
+        @include tablet {
+            max-width: 100%;
+        }
+        @include mobile {
+            max-width: 100%;
+        }
     }
 }
 
@@ -65,6 +93,10 @@ button, .btn {
     font-size: 1.5rem;
     line-height: 1.8rem;
     padding: 1.5rem;
+
+    @include mobile {
+        font-size: 1.6rem;
+    }
 
     &--white {
         background-color: $color-white;

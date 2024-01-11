@@ -1,5 +1,5 @@
 .slider {
-    margin: 8rem 0;
+    margin-top: 3.2rem;
     height: 18rem;
 
     .slick-arrow {
@@ -13,6 +13,13 @@
         justify-content: center;
         align-items: center;
         z-index: 1;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+    .slick-prev {
+        left: 0;
     }
 
     .slick-next::before, .slick-prev::before {
@@ -32,7 +39,7 @@
 
     .slick-prev::before {
         transform: rotate(180deg);
-        margin-left: 1.6rem;
+        // margin-left: 1.6rem;
     }   
 }
 
@@ -62,9 +69,18 @@
         margin-right: 0;
     }
 
+    @include mobile {
+        padding: 1.6rem 5rem;
+    }
+
     &__wrapper {
         overflow: hidden;
         display: flex;
+        height: 100%;
+
+        @include mobile {
+            justify-content: space-around;
+        }
     }
 
     &__info {
