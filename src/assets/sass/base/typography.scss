@@ -18,6 +18,7 @@ h1 {
 h2 {
     font-size: $h2-size;
     font-family: $base-font-family-bold;
+    text-align: center;
 }
 
 h3 {
@@ -36,6 +37,8 @@ h5 {
 
 h6 {
     font-size: $h6-size;
+    line-height: 1.8rem;
+    font-family: $base-font-family-bold;
 }
 
 p {

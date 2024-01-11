@@ -34,14 +34,43 @@ body {
 .page-width {
     margin-left: auto;
     margin-right: auto;
-    // min-width: 128rem;
     max-width: 128rem;
     padding-left: 4rem;
     padding-right: 4rem;
+
+    &--start {
+       margin: 0;
+       padding-top: 2.2rem; 
+    }   
+}
+
+.section, .article {
+    margin-bottom: 8rem;
+
+    &--narrow {
+        max-width: 99.6rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 button, .btn {
     border: none;
     outline: none;
     cursor: pointer;
+    border-radius: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    padding: 1.5rem;
+
+    &--white {
+        background-color: $color-white;
+    }
+
+    &--green {
+        background-color: $color-accent;
+    }
 }
