@@ -50,7 +50,7 @@
         color: $color-white;
         line-height: 7.2rem;
         margin-bottom: .4rem;
-        // font-family: 'MuseoSansCyrlW03-900';
+        font-family: "Museo Sans Cyrl 900";
     }
 
     &__text {
@@ -85,7 +85,7 @@
         align-items: center;
         justify-content: center;
         border-radius: 12px;
-        // font-size: 1.5rem;
+        color: $color-black;
         font-family: $base-font-family-bold;
 
         @include mobile {
