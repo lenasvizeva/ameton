@@ -6,20 +6,12 @@ const htmlmin = require("gulp-htmlmin");
 const uglify = require("gulp-uglify");
 const sass = require('gulp-sass')(require('sass'));
 const concat = require("gulp-concat");
-const browserSync = require("browser-sync").create(); //https://browsersync.io/docs/gulp#page-top
+const browserSync = require("browser-sync").create();
 const nunjucksRender = require("gulp-nunjucks-render");
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 
-// /*
-// TOP LEVEL FUNCTIONS
-//     gulp.task = Define tasks
-//     gulp.src = Point to files to use
-//     gulp.dest = Points to the folder to output
-//     gulp.watch = Watch files and folders for changes
-// */
 
-// Optimise Images
 function imageMin(cb) {
     gulp.src("src/assets/img/**/*")
         .pipe(imagemin())
@@ -27,13 +19,11 @@ function imageMin(cb) {
     cb();
 }
 
-// Copy all HTML files to Dist
 function copyHTML(cb) {
     gulp.src("src/*.html").pipe(gulp.dest("dist"));
     cb();
 }
 
-// Minify HTML
 function minifyHTML(cb) {
     gulp.src("src/*.html")
         .pipe(gulp.dest("dist"))
@@ -52,7 +42,6 @@ function copyFonts(cb) {
     cb();
 }
 
-// Scripts
 function js(cb) {
     gulp.src("src/assets/js/*js")
         .pipe(babel({
@@ -64,7 +53,6 @@ function js(cb) {
     cb();
 }
 
-// Compile Sass
 function css(cb) {
     gulp.src("src/assets/sass/*.scss")
         .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
@@ -83,7 +71,7 @@ function nunjucks(cb) {
     gulp.src("src/pages/*.html")
         .pipe(
             nunjucksRender({
-                path: ["src/templates/"] // String or Array
+                path: ["src/templates/"] 
             })
         )
         .pipe(gulp.dest("dist"));
@@ -94,7 +82,7 @@ function nunjucksMinify(cb) {
     gulp.src("src/pages/*.html")
         .pipe(
             nunjucksRender({
-                path: ["src/templates/"] // String or Array
+                path: ["src/templates/"]
             })
         )
         .pipe(
@@ -106,7 +94,6 @@ function nunjucksMinify(cb) {
     cb();
 }
 
-// Watch Files
 function watch_files() {
     browserSync.init({
         server: {
@@ -127,8 +114,6 @@ gulp.task('deploy', function () {
       .pipe(deploy())
 });
 
-// Default 'gulp' command with start local server and watch files for changes.
 exports.default = series(nunjucks, css, js, imageMin, watch_files);
 
-// 'gulp build' will build all assets but not run on a local server.
 exports.build = parallel(nunjucksMinify, css, js, imageMin, copyHTML, copyFonts);

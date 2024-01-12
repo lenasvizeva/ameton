@@ -4,8 +4,10 @@
     "description": "Ameton testwork",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "predeploy": "rm -rf dist && gulp build",
+        "deploy": "gh-pages -d dist"
     },
+    "homepage": "https://lenasvizeva.github.io/ameton/",
     "author": "Elena Svizeva",
     "license": "ISC",
     "devDependencies": {
