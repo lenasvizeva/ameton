@@ -19,6 +19,7 @@ h2 {
     font-size: $h2-size;
     font-family: $base-font-family-bold;
     text-align: center;
+    line-height: 4.8rem;
 
     @include mobile {
         font-size: 3.6rem;
@@ -33,7 +34,8 @@ h3 {
 
 h4 {
     font-size: $h4-size;
-    font-family: $base-font-family-bold;
+    // font-family: $base-font-family-bold;
+    line-height: 2.8rem;
 }
 
 h5 {
