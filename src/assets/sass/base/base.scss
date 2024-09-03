@@ -25,7 +25,6 @@ html {
 }
 
 body {
-    // align-items: stretch;
     display: block;
     display: flex;
     flex-direction: column;
@@ -34,6 +33,13 @@ body {
     position: relative;
     width: 100%;
     align-items: center;
+
+    @include tablet {
+        align-items: stretch;
+    }
+    @include mobile {
+        align-items: stretch;
+    }
 }
 
 .page-width {
