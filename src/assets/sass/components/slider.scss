@@ -69,6 +69,10 @@
 
 .slick-dots { 
 
+    @include mobile {
+        bottom: -5rem;
+    }
+
     li button::before {
         content: '';
         background-color: $color-black;
@@ -76,7 +80,7 @@
         width: 1.4rem;
         height: 1.4rem;
     }
-    
+
 }
 
 .card {
